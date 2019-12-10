@@ -1,16 +1,17 @@
-			import {Casas} from "./Casas.js";
+			//import {Alumnos} from "./Alumnos.js";
 			//Crear objetos de casas desde un fichero JSON
-			var GryffindorDatos = '"Gryffindor","Godric Gryffindor","Leon dorado aslan",["Escarlata","dorado"],[]';
-			var HufflepuffDatos = '{ "Hufflepuff","Helga Hufflepuff","Tejon Negro",["Amarillo","Negro"],[]}';
-			var RavenclawDatos = '{ "Ravenclaw","Rowena Ravenclaw","Aguila de bronce",["Azul","Bronce"],[]}';
-			var SlytherinDatos = '{ "Slytherin","Salazar Slytherin","Serpiente plateada",["verde esmeralda","plata"],[]}';
-
-			var Gryffindor = new Casas(JSON.parse(GryffindorDatos));
-			var Hufflepuff = new Casas(JSON.parse(HufflepuffDatos));
-			var Ravenclaw = new Casas(JSON.parse(RavenclawDatos));
-			var Slytherin = new Casas(JSON.parse(SlytherinDatos));
-	   		console.log(GryffindorDatos);
+			//variable DatosCasas es el JSON de las casas
+			var DatosCasas = '{"Casas":['+
+				'{"Nombre":"Gryffindor","Fundador":"Godric Gryffindor","Mascota":"Leon dorado aslan","Colores":["Escarlata","dorado"],"Alumnos":[null]},'+
+				'{"Nombre":"Hufflepuff","Fundador":"Helga Hufflepuff","Mascota":"Tejon Negro","Colores":["Amarillo","Negro"],"Alumnos":[null]},'+
+				'{"Nombre":"Ravenclaw","Fundador":"Rowena Ravenclaw","Mascota":"Aguila de bronce","Colores":["Azul","Bronce"],"Alumnos":[null]},'+
+				'{"Nombre":"Slytherin","Fundador":"Salazar Slytherin","Mascota":"Serpiente plateada","Colores":["verde esmeralda","plata"],"Alumnos":[null]}'+
+			']}';
 			
+			//Hacemos un JSON.parse a la variable anteriormente creada y lo insertamos en la siguiente variable
+			var Casas = JSON.parse(DatosCasas);
+			console.log(Casas.Casas[0].Alumnos[0])
+
 			//Las variables usadas en esta pagina con JS
 			var pregunta=0; //Variable usada para saber la pregunta que hay que visualizar
 			var resultado=0; //Variable usada para saber los resultados, cambiando el valor por cada pregunta
@@ -20,7 +21,7 @@
 					FechaApertura:'20-1-990',
 					Director:'Albus Dumbledore',
 					Materia:'Magico',
-					Casas :[]		
+					Casas :[Casas.Casas[0],Casas.Casas[1],Casas.Casas[2],Casas.Casas[3]]		
 			};
 			
 
@@ -72,6 +73,8 @@
 				let nombre = document.getElementById("Nombre");
 				//Cogemos el apellido que inserta el usuario
 				let apellido = document.getElementById("Apellido");
+				//Creamos alumno
+				var alumno;
 
 
 				//Miramos cual ha sido la respuesta del usuario y asignamos un valor a la variable respuesta
@@ -147,26 +150,33 @@
             	//Hacemos el calculo de las respuestas para saber a donde irian
             	if(resultado<=15){
             		//Gryffindor
-            		console.log('Gryffindor');
+					Alumno = new Alumnos(nombre,apellido);
+					console.log(Alumno);
             	}
             	else if(resultado>30 && resultado<=45){
             		//Hufflepuff
-            		console.log('Hufflepuff');
+					Alumno = new Alumnos(nombre,apellido);
+					console.log(Alumno);
             	}else if(resultado>45 && resultado<60){
             		//Ravenclaw
-					console.log('Ravenclaw');
+					Alumno = new Alumnos(nombre,apellido);
+					console.log(Alumno);
             	}else{
             		//Slytherin
-            		console.log('Slytherin');
+					Alumno = new Alumnos(nombre,apellido);
+					console.log(Alumno);
             	}
             	console.log(resultado);
 			};
 
-			//Mostrar datos del colegio e sus casas
+			//Mostrar datos del colegio y sus casas
 			function mostrarDatosColegio(){
 				document.getElementById("Presentacion").style.display ="none";
 				document.getElementById("Respuesta").style.display ="flex";
-				document.getElementById('Respuesta').innerHTML+="<h1>Colegios:</h1><br>Nombre: "+Colegios.Nombre+"<br>FechaApertura : "+Colegios.FechaApertura+"<br>Director : "+Colegios.Director+"<br>Materia : "+Colegios.Materia+"<br>Casas : ";
+				document.getElementById('Respuesta').innerHTML+="<h1>Colegios:</h1><br>Nombre: "+Colegios.Nombre+"<br>FechaApertura : "+Colegios.FechaApertura+"<br>Director : "+Colegios.Director+"<br>Materia : "+Colegios.Materia+"<br>Casas : "
+				for(let i=0;i<Colegios.Casas.length;i++){
+					document.getElementById('Respuesta').innerHTML+="<li>"+Colegios.Casas[i].Nombre+"</li>";
+				}	
 			};
 			
 			//Vuelve a mostrar pestaña inicial
