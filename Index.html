@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Sombrero Selector</title>
+		<link rel="stylesheet" type="text/css" href="Estilos/estilo_index.css">
+		<script type="module" src="/JS/main.js"></script>
+	</head>
+	<body>
+		<section>
+			<div id="Presentacion" class="Presentacion">
+				<div id="TituloPresentacion">
+					<h1>Sombrero Selector</h1>
+				</div>
+				<img src="Imagenes/Sombrero.jpg" alt="Sombrero selector">
+				<div id="BotonesPresentacion">
+					<button onclick="mostrarPreguntas()">¿A que casa pertenezco?</button>
+					<button onclick="mostrarDatosColegio()">Información sobre las casas</button>
+					<button onclick="">Mostrar estudiantes</button>
+				</div>
+			</div>
+			<div id="Cuestionario">
+				<h1>Bloque de preguntas</h1>
+					<div id="CuestParte1" class="Cuestionario">
+						<h2>¿Que asignatura suspenderias en Hogwarts?</h2>
+						<div class="Preguntas">
+							<form action="" method="post">
+								<input type="radio" name="asignaturas" value="astronomia"><label>Astronomia</label>
+								<input type="radio" name="asignaturas" value="vuelo"><label>Vuelo</label>
+								<input type="radio" name="asignaturas" value="historia"><label>Historia de la magia</label>
+								<input type="radio" name="asignaturas" value="pociones"><label>Pociones</label>		
+							</form>
+						</div>
+					</div>
+					<div id="CuestParte2" class="Cuestionario">
+						<h2>Elige tus tres hechizos preferidos</h2>
+						<div class="Preguntas">
+							<form action="" method="post">
+								<label><input type="checkbox" name="hechizos" value="1">Avada-Kedavra</label>
+								<label><input type="checkbox" name="hechizos" value="2">Imperius</label>
+								<label><input type="checkbox" name="hechizos" value="3">Cruciatus</label>
+								<label><input type="checkbox" name="hechizos" value="4">Expecto-Patronum</label>	
+								<label><input type="checkbox" name="hechizos" value="5">Expelliarmus</label>
+								<label><input type="checkbox" name="hechizos" value="6">Wingardium-Leviosa</label>	
+							</form>
+						</div>
+					</div>
+					<div id="CuestParte3" class="Cuestionario">
+						<h2>¿Que ser te aterra mas?</h2>
+						<form action="" method="post">
+							<div class="Preguntas">
+									<div class="carta">
+										<img class="FotosSeres" src="Imagenes/seres/acromantula.jpg" alt="acromantula">
+										<label><input type="radio" name="ser" value="acromantula">Acromantula</label>
+									</div>
+									<div class="carta">
+										<img class="FotosSeres" src="Imagenes/seres/basilisco.jpg" alt="basilisco">
+										<label><input type="radio" name="ser" value="basilisco">Basilisco</label>
+									</div>
+									<div class="carta">
+										<img class="FotosSeres" src="Imagenes/seres/cancerbero.jpg" alt="cancerbero"></br>
+										<label><input type="radio" name="ser" value="cancerbero">Cancerbero</label>
+									</div>
+									<div class="carta">
+										<img class="FotosSeres" src="Imagenes/seres/dementor.jpg" alt="dementor">
+										<label><input type="radio" name="ser" value="dementor">Dementor</label>	
+									</div>
+									<div class="carta">
+										<img class="FotosSeres" src="Imagenes/seres/hipogrifo.jpg" alt="hipogrifo">
+										<label><input type="radio" name="ser" value="hipogrifo">Hipogrifo</label>
+									</div>	
+							</div>
+						</form>
+					</div>
+					<div id="CuestParte4" class="Cuestionario">
+						<h2>¿ Cual de estos grupos palabras te describen mas?</h2>
+						<div class="Preguntas">
+							<form action="" method="post">
+								<input type="radio" name="palabras" value="Gryffindor"><label>Valor, audacia y caballerosidad</label>
+								<input type="radio" name="palabras" value="Hufflepuff"><label>Justicia, lealtad y paciencia</label><br>
+								<input type="radio" name="palabras" value="Ravenclaw"><label>Inteligencia, erudición, creatividad</label>
+								<input type="radio" name="palabras" value="Slytherin"><label>Ambición, determinación y astucia</label>
+							</form>
+						</div>
+					</div>
+					<div id="CuestParte5" class="Cuestionario">
+						<h2>Inserta tus datos</h2>
+						<div class="Preguntas">
+							<form action="" method="post">
+								<label>Inserte tu nombre :<input type="text" name="Nombre"></label><br><br>
+								<label>Inserte tu apellido :<input type="text" name="Apellido"></label><br><br>
+								<button onclick="resultadoPreguntas();return false;">Ver resultado</button>	
+							</form>
+						</div>
+					</div>
+				<button id="botonSiguiente" onclick="siguientePregunta()">Siguiente</button>
+			</div>
+			<div id="Respuesta" class="Presentacion">
+				<button id="Inicio" onclick="inicio()">Pagina Principal</button>
+			</div>
+		</section>
+	</body>
+</html>

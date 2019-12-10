@@ -1,0 +1,99 @@
+body{
+	background-image: url("../Imagenes/Fondo.png");
+	background-size: 100%;
+	background-repeat: no-repeat;
+}
+
+section{
+	display: flex;
+	flex-direction: column;
+	align-items:center;
+}
+
+.Presentacion{
+	padding: 2%;
+	background:rgba(179,229,254,0.7);
+	width: 50%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.Presentacion img{
+	border-radius: 5% 5% 5% 5%;
+	margin:2%;
+	width: 45%;
+	height: 45%;
+}
+
+#Cuestionario{
+	padding: 2%;
+	background:rgba(179,229,254,0.7);
+	width: 54%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.Cuestionario{
+	margin-bottom: 5%;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	text-align: center;
+}
+
+.Cuestionario h2{
+	width: 100%;
+}
+
+.Preguntas{
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+form{
+	width: 100%;
+}
+.Preguntas input{
+	margin-top:2%;
+	margin-left: 3%;
+}
+.carta{
+	width: 30%;
+	margin-bottom: 2%;
+}
+.FotosSeres{
+	width: 95%;
+	height: 90%;
+}
+
+#Cuestionario{
+	display: none;
+}
+
+#CuestParte1{
+	display: none;
+}
+
+#CuestParte2{
+	display: none;
+}
+
+#CuestParte3{
+	display: none;
+}
+
+#CuestParte4{
+	display: none;
+}
+
+#CuestParte5{
+	display: none;
+}
+
+#Respuesta{
+	display: none;
+}
