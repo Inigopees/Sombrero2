@@ -1,16 +1,16 @@
-			//import {Alumnos} from "./Alumnos.js";
+			//import Alumnos from './JS/Alumnos.mjs'
 			//Crear objetos de casas desde un fichero JSON
 			//variable DatosCasas es el JSON de las casas
 			var DatosCasas = '{"Casas":['+
-				'{"Nombre":"Gryffindor","Fundador":"Godric Gryffindor","Mascota":"Leon dorado aslan","Colores":["Escarlata","dorado"],"Alumnos":[null]},'+
-				'{"Nombre":"Hufflepuff","Fundador":"Helga Hufflepuff","Mascota":"Tejon Negro","Colores":["Amarillo","Negro"],"Alumnos":[null]},'+
-				'{"Nombre":"Ravenclaw","Fundador":"Rowena Ravenclaw","Mascota":"Aguila de bronce","Colores":["Azul","Bronce"],"Alumnos":[null]},'+
-				'{"Nombre":"Slytherin","Fundador":"Salazar Slytherin","Mascota":"Serpiente plateada","Colores":["verde esmeralda","plata"],"Alumnos":[null]}'+
+				'{"Nombre":"Gryffindor","Fundador":"Godric Gryffindor","Mascota":"Leon dorado aslan","Colores":["Escarlata","dorado"],"Alumnos":[]},'+
+				'{"Nombre":"Hufflepuff","Fundador":"Helga Hufflepuff","Mascota":"Tejon Negro","Colores":["Amarillo","Negro"],"Alumnos":[]},'+
+				'{"Nombre":"Ravenclaw","Fundador":"Rowena Ravenclaw","Mascota":"Aguila de bronce","Colores":["Azul","Bronce"],"Alumnos":[]},'+
+				'{"Nombre":"Slytherin","Fundador":"Salazar Slytherin","Mascota":"Serpiente plateada","Colores":["verde esmeralda","plata"],"Alumnos":[]}'+
 			']}';
 			
 			//Hacemos un JSON.parse a la variable anteriormente creada y lo insertamos en la siguiente variable
 			var Casas = JSON.parse(DatosCasas);
-			console.log(Casas.Casas[0].Alumnos[0])
+			console.log(Casas.Casas[0].Nombre);
 
 			//Las variables usadas en esta pagina con JS
 			var pregunta=0; //Variable usada para saber la pregunta que hay que visualizar
@@ -24,9 +24,18 @@
 					Casas :[Casas.Casas[0],Casas.Casas[1],Casas.Casas[2],Casas.Casas[3]]		
 			};
 			
+			//Constructor de Alumnos
+			class Alumnos{
+
+				constructor(Nombre,Apellido){
+					this.Nombre = Nombre;
+					this.Apellido = Apellido;
+				}
+		
+			};
 
 			//Con esta funcion escondemos el div principal y mostramos la primera pregunta
-			var mostrarPreguntas = function mostrarPreguntas(){
+			function mostrarPreguntas(){
 				document.getElementById("Presentacion").style.display ="none";
 				document.getElementById("Cuestionario").style.display ="flex";
 				document.getElementById("CuestParte1").style.display ="flex";
@@ -70,11 +79,10 @@
 				//recogemos la respuesta de la tercera pregunta
 				let adjetivos = document.querySelectorAll("input[type='radio']");
 				//Cogemos el nombre que inserta el usuario
-				let nombre = document.getElementById("Nombre");
+				let nombre = document.getElementById("Nombre").value;
 				//Cogemos el apellido que inserta el usuario
-				let apellido = document.getElementById("Apellido");
-				//Creamos alumno
-				var alumno;
+				let apellido = document.getElementById("Apellido").value;
+
 
 
 				//Miramos cual ha sido la respuesta del usuario y asignamos un valor a la variable respuesta
@@ -93,16 +101,16 @@
                 			case "pociones":
                 				resultado += 25;
                 			break;
-                		}
-                	}
+                		};
+                	};
             	};
 
             	//Segunda pregunta, miramos la respuesta de esta
             	for(let i=0;i<hechizos.length;i++){
                 	if(hechizos[i].checked==true){
                 		resultado += parseInt(hechizos[i].value);
-                	}
-                }
+                	};
+                };
 
                 //Tercera pregunta, miramos la respuesta
                 for(let i=0;i<seres.length;i++){
@@ -123,8 +131,8 @@
                 			case "hipogrifo":
                 				resultado -= 3;
                 			break;
-                		}
-                	}
+                		};
+                	};
             	};
 
             	//Cuarta pregunta, miramos la respuesta
@@ -143,30 +151,34 @@
                 			case "Slytherin":
                 				resultado += 15;
                 			break;
-                		}
-                	}
+                		};
+                	};
             	};
 
             	//Hacemos el calculo de las respuestas para saber a donde irian
             	if(resultado<=15){
-            		//Gryffindor
-					Alumno = new Alumnos(nombre,apellido);
-					console.log(Alumno);
+					//Gryffindor
+					console.log('1');
+					var Alumno = new Alumnos(nombre,apellido);
+					Casas.Casas[0].Alumnos.push(Alumno);
+					console.log(Casas.Casas[0].Alumnos[1].Nombre);
             	}
             	else if(resultado>30 && resultado<=45){
-            		//Hufflepuff
-					Alumno = new Alumnos(nombre,apellido);
-					console.log(Alumno);
+					//Hufflepuff
+					var Alumno = new Alumnos(nombre,apellido);
+					Casas.Casas[1].Alumnos.push(Alumno);
+
             	}else if(resultado>45 && resultado<60){
-            		//Ravenclaw
-					Alumno = new Alumnos(nombre,apellido);
-					console.log(Alumno);
+					//Ravenclaw
+					var Alumno = new Alumnos(nombre,apellido);
+					Casas.Casas[2].Alumnos.push(Alumno);
             	}else{
-            		//Slytherin
-					Alumno = new Alumnos(nombre,apellido);
-					console.log(Alumno);
+					//Slytherin
+					console.log('4');
+					var Alumno = new Alumnos(nombre,apellido);
+					Casas.Casas[3].Alumnos.push(Alumno);
+					console.log(Casas.Casas[3].Alumnos[1].Nombre);
             	}
-            	console.log(resultado);
 			};
 
 			//Mostrar datos del colegio y sus casas
